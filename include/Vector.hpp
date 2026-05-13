@@ -30,12 +30,16 @@ public:
 	const T& operator[](size_t i) const;
 
 	iterator begin();
-
 	iterator end();
 
 	const_iterator begin() const;
-
 	const_iterator end() const;
+
+	reverse_iterator rbegin();
+	reverse_iterator rend();
+
+	reverse_const_iterator rbegin() const;
+	reverse_const_iterator rend() const;
 
 	Vector operator+(const Vector& rhs) const;
 

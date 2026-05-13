@@ -53,6 +53,26 @@ typename Vector<T, N>::const_iterator Vector<T, N>::end() const {
 }
 
 template<typename T, std::size_t N>
+typename Vector<T, N>::reverse_iterator Vector<T, N>::rbegin() {
+	return _content + N - 1;
+}
+
+template<typename T, std::size_t N>
+typename Vector<T, N>::reverse_iterator Vector<T, N>::rend() {
+	return _content - 1;
+}
+
+template<typename T, std::size_t N>
+typename Vector<T, N>::reverse_const_iterator Vector<T, N>::rbegin() const {
+	return _content + N - 1;
+}
+
+template<typename T, std::size_t N>
+typename Vector<T, N>::reverse_const_iterator Vector<T, N>::rend() const {
+	return _content - 1;
+}
+
+template<typename T, std::size_t N>
 void Vector<T, N>::print() const {
 	for (auto val: *this) {
 		std::print("{} ", val);

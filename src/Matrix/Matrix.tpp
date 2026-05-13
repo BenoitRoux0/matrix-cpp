@@ -59,6 +59,26 @@ typename Matrix<T, M, N>::const_iterator Matrix<T, M, N>::end() const {
 }
 
 template<typename T, std::size_t M, std::size_t N>
+typename Matrix<T, M, N>::reverse_iterator Matrix<T, M, N>::rbegin() {
+	return _content + M - 1;
+}
+
+template<typename T, std::size_t M, std::size_t N>
+typename Matrix<T, M, N>::reverse_iterator Matrix<T, M, N>::rend() {
+	return _content - 1;
+}
+
+template<typename T, std::size_t M, std::size_t N>
+typename Matrix<T, M, N>::reverse_const_iterator Matrix<T, M, N>::rbegin() const {
+	return _content + M - 1;
+}
+
+template<typename T, std::size_t M, std::size_t N>
+typename Matrix<T, M, N>::reverse_const_iterator Matrix<T, M, N>::rend() const {
+	return _content - 1;
+}
+
+template<typename T, std::size_t M, std::size_t N>
 void Matrix<T, M, N>::print() const {
 	for (auto vec: *this) {
 		std::print("| {}|\n", vec);
