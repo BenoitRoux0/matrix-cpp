@@ -3,8 +3,8 @@
 #include <ranges>
 
 template<typename T, std::size_t N>
-Vector<T, N> Vector<T, N>::operator+(const Vector &rhs) const {
-	Vector	v(*this);
+Vector<T, N> Vector<T, N>::operator+(const Vector& rhs) const {
+	Vector v(*this);
 
 	for (auto [lVal, rVal]: std::views::zip(v, rhs)) {
 		lVal += rVal;
@@ -14,7 +14,7 @@ Vector<T, N> Vector<T, N>::operator+(const Vector &rhs) const {
 }
 
 template<typename T, std::size_t N>
-Vector<T, N> Vector<T, N>::operator+=(const Vector &rhs) {
+Vector<T, N> Vector<T, N>::operator+=(const Vector& rhs) {
 	for (auto [lVal, rVal]: std::views::zip(*this, rhs)) {
 		lVal += rVal;
 	}

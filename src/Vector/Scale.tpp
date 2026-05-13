@@ -3,8 +3,8 @@
 #include <ranges>
 
 template<typename T, std::size_t N>
-Vector<T, N> Vector<T, N>::operator*(const T &scalar) const {
-	Vector	v(*this);
+Vector<T, N> Vector<T, N>::operator*(const T& scalar) const {
+	Vector v(*this);
 
 	for (auto& val: v) {
 		val *= scalar;
@@ -14,12 +14,12 @@ Vector<T, N> Vector<T, N>::operator*(const T &scalar) const {
 }
 
 template<typename T, std::size_t N>
-Vector<T, N> operator*(const T &scalar, const Vector<T, N> &vec) {
+Vector<T, N> operator*(const T& scalar, const Vector<T, N>& vec) {
 	return vec * scalar;
 }
 
 template<typename T, std::size_t N>
-Vector<T, N> Vector<T, N>::operator*=(const T &scalar) {
+Vector<T, N> Vector<T, N>::operator*=(const T& scalar) {
 	for (auto& val: *this) {
 		val *= scalar;
 	}

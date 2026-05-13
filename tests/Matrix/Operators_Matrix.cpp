@@ -7,12 +7,12 @@
 
 TEST(MatrixOperators, AdditionBasic) {
 	int a[2][3] = {
-		{1, 2, 3},
-		{4, 5, 6}
+			{1, 2, 3},
+			{4, 5, 6}
 	};
 	int b[2][3] = {
-		{1, 1, 1},
-		{2, 2, 2}
+			{1, 1, 1},
+			{2, 2, 2}
 	};
 	Matrix<int, 2, 3> ma(a);
 	Matrix<int, 2, 3> mb(b);
@@ -29,12 +29,12 @@ TEST(MatrixOperators, AdditionBasic) {
 
 TEST(MatrixOperators, AdditionWithZero) {
 	int a[2][2] = {
-		{1, 2},
-		{3, 4}
+			{1, 2},
+			{3, 4}
 	};
 	int zero[2][2] = {
-		{0, 0},
-		{0, 0}
+			{0, 0},
+			{0, 0}
 	};
 	Matrix<int, 2, 2> ma(a);
 	Matrix<int, 2, 2> mzero(zero);
@@ -50,12 +50,12 @@ TEST(MatrixOperators, AdditionWithZero) {
 
 TEST(MatrixOperators, AdditionNegativeNumbers) {
 	int a[2][2] = {
-		{5, -3},
-		{2, 8}
+			{5, -3},
+			{2, 8}
 	};
 	int b[2][2] = {
-		{-2, 3},
-		{-4, 1}
+			{-2, 3},
+			{-4, 1}
 	};
 	::Matrix<int, 2, 2> ma(a);
 	::Matrix<int, 2, 2> mb(b);
@@ -70,12 +70,12 @@ TEST(MatrixOperators, AdditionNegativeNumbers) {
 
 TEST(MatrixOperators, AdditionFloating) {
 	double a[2][2] = {
-		{1.5, 2.5},
-		{3.5, 4.5}
+			{1.5, 2.5},
+			{3.5, 4.5}
 	};
 	double b[2][2] = {
-		{0.5, 0.5},
-		{0.5, 0.5}
+			{0.5, 0.5},
+			{0.5, 0.5}
 	};
 	::Matrix<double, 2, 2> ma(a);
 	::Matrix<double, 2, 2> mb(b);
@@ -90,12 +90,12 @@ TEST(MatrixOperators, AdditionFloating) {
 
 TEST(MatrixOperators, AdditionCommutative) {
 	int a[2][2] = {
-		{1, 2},
-		{3, 4}
+			{1, 2},
+			{3, 4}
 	};
 	int b[2][2] = {
-		{5, 6},
-		{7, 8}
+			{5, 6},
+			{7, 8}
 	};
 	::Matrix<int, 2, 2> ma(a);
 	::Matrix<int, 2, 2> mb(b);
@@ -133,14 +133,14 @@ TEST(MatrixOperators, AdditionLargeMatrix) {
 
 TEST(MatrixOperators, AdditionRectangularMatrix) {
 	int a[3][4] = {
-		{1, 2, 3, 4},
-		{5, 6, 7, 8},
-		{9, 10, 11, 12}
+			{1, 2, 3, 4},
+			{5, 6, 7, 8},
+			{9, 10, 11, 12}
 	};
 	int b[3][4] = {
-		{1, 1, 1, 1},
-		{1, 1, 1, 1},
-		{1, 1, 1, 1}
+			{1, 1, 1, 1},
+			{1, 1, 1, 1},
+			{1, 1, 1, 1}
 	};
 	::Matrix<int, 3, 4> ma(a);
 	::Matrix<int, 3, 4> mb(b);
@@ -160,12 +160,12 @@ TEST(MatrixOperators, AdditionRectangularMatrix) {
 
 TEST(MatrixOperators, SubtractionBasic) {
 	int a[2][3] = {
-		{5, 7, 9},
-		{11, 13, 15}
+			{5, 7, 9},
+			{11, 13, 15}
 	};
 	int b[2][3] = {
-		{1, 2, 3},
-		{4, 5, 6}
+			{1, 2, 3},
+			{4, 5, 6}
 	};
 	::Matrix<int, 2, 3> ma(a);
 	::Matrix<int, 2, 3> mb(b);
@@ -182,12 +182,12 @@ TEST(MatrixOperators, SubtractionBasic) {
 
 TEST(MatrixOperators, SubtractionFromZero) {
 	int a[2][2] = {
-		{1, 2},
-		{3, 4}
+			{1, 2},
+			{3, 4}
 	};
 	int zero[2][2] = {
-		{0, 0},
-		{0, 0}
+			{0, 0},
+			{0, 0}
 	};
 	::Matrix<int, 2, 2> ma(a);
 	::Matrix<int, 2, 2> mzero(zero);
@@ -202,8 +202,8 @@ TEST(MatrixOperators, SubtractionFromZero) {
 
 TEST(MatrixOperators, SubtractionSameMatrix) {
 	int a[2][2] = {
-		{5, 7},
-		{9, 11}
+			{5, 7},
+			{9, 11}
 	};
 	::Matrix<int, 2, 2> ma(a);
 
@@ -218,12 +218,12 @@ TEST(MatrixOperators, SubtractionSameMatrix) {
 
 TEST(MatrixOperators, SubtractionNegativeNumbers) {
 	int a[2][2] = {
-		{-5, -3},
-		{2, 8}
+			{-5, -3},
+			{2, 8}
 	};
 	int b[2][2] = {
-		{-2, 3},
-		{-4, 1}
+			{-2, 3},
+			{-4, 1}
 	};
 	::Matrix<int, 2, 2> ma(a);
 	::Matrix<int, 2, 2> mb(b);
@@ -238,12 +238,12 @@ TEST(MatrixOperators, SubtractionNegativeNumbers) {
 
 TEST(MatrixOperators, SubtractionFloating) {
 	double a[2][2] = {
-		{3.5, 2.5},
-		{1.5, 0.5}
+			{3.5, 2.5},
+			{1.5, 0.5}
 	};
 	double b[2][2] = {
-		{0.5, 0.5},
-		{0.5, 0.5}
+			{0.5, 0.5},
+			{0.5, 0.5}
 	};
 	::Matrix<double, 2, 2> ma(a);
 	::Matrix<double, 2, 2> mb(b);
@@ -258,12 +258,12 @@ TEST(MatrixOperators, SubtractionFloating) {
 
 TEST(MatrixOperators, SubtractionNotCommutative) {
 	int a[2][2] = {
-		{1, 2},
-		{3, 4}
+			{1, 2},
+			{3, 4}
 	};
 	int b[2][2] = {
-		{5, 6},
-		{7, 8}
+			{5, 6},
+			{7, 8}
 	};
 	::Matrix<int, 2, 2> ma(a);
 	::Matrix<int, 2, 2> mb(b);
@@ -305,8 +305,8 @@ TEST(MatrixOperators, SubtractionLargeMatrix) {
 
 TEST(MatrixOperators, ScalarMultiplicationBasic) {
 	int a[2][2] = {
-		{1, 2},
-		{3, 4}
+			{1, 2},
+			{3, 4}
 	};
 	::Matrix<int, 2, 2> ma(a);
 
@@ -320,8 +320,8 @@ TEST(MatrixOperators, ScalarMultiplicationBasic) {
 
 TEST(MatrixOperators, ScalarMultiplicationByZero) {
 	int a[2][2] = {
-		{1, 2},
-		{3, 4}
+			{1, 2},
+			{3, 4}
 	};
 	::Matrix<int, 2, 2> ma(a);
 
@@ -336,8 +336,8 @@ TEST(MatrixOperators, ScalarMultiplicationByZero) {
 
 TEST(MatrixOperators, ScalarMultiplicationByOne) {
 	int a[2][2] = {
-		{1, 2},
-		{3, 4}
+			{1, 2},
+			{3, 4}
 	};
 	::Matrix<int, 2, 2> ma(a);
 
@@ -352,8 +352,8 @@ TEST(MatrixOperators, ScalarMultiplicationByOne) {
 
 TEST(MatrixOperators, ScalarMultiplicationNegative) {
 	int a[2][2] = {
-		{1, -2},
-		{3, -4}
+			{1, -2},
+			{3, -4}
 	};
 	::Matrix<int, 2, 2> ma(a);
 
@@ -367,8 +367,8 @@ TEST(MatrixOperators, ScalarMultiplicationNegative) {
 
 TEST(MatrixOperators, ScalarMultiplicationFloating) {
 	double a[2][2] = {
-		{1.0, 2.0},
-		{3.0, 4.0}
+			{1.0, 2.0},
+			{3.0, 4.0}
 	};
 	::Matrix<double, 2, 2> ma(a);
 
@@ -382,8 +382,8 @@ TEST(MatrixOperators, ScalarMultiplicationFloating) {
 
 TEST(MatrixOperators, ScalarMultiplicationFractional) {
 	double a[2][2] = {
-		{2.0, 4.0},
-		{6.0, 8.0}
+			{2.0, 4.0},
+			{6.0, 8.0}
 	};
 	::Matrix<double, 2, 2> ma(a);
 
@@ -415,12 +415,12 @@ TEST(MatrixOperators, ScalarMultiplicationLargeMatrix) {
 
 TEST(MatrixOperators, ScalarMultiplicationRectangularMatrix) {
 	int a[3][4] = {
-		{1, 2, 3, 4},
-		{5, 6, 7, 8},
-		{9, 10, 11, 12}
+			{1, 2, 3, 4},
+			{5, 6, 7, 8},
+			{9, 10, 11, 12}
 	};
 	::Matrix<int, 3, 4> ma(a);
-	int scalar = 2;
+	int                 scalar = 2;
 
 	::Matrix<int, 3, 4> result = ma * scalar;
 
@@ -437,12 +437,12 @@ TEST(MatrixOperators, ScalarMultiplicationRectangularMatrix) {
 
 TEST(MatrixOperators, CombinedAdditionAndMultiplication) {
 	int a[2][2] = {
-		{1, 2},
-		{3, 4}
+			{1, 2},
+			{3, 4}
 	};
 	int b[2][2] = {
-		{2, 3},
-		{4, 5}
+			{2, 3},
+			{4, 5}
 	};
 	::Matrix<int, 2, 2> ma(a);
 	::Matrix<int, 2, 2> mb(b);
@@ -450,20 +450,20 @@ TEST(MatrixOperators, CombinedAdditionAndMultiplication) {
 	// (ma + mb) * 2
 	::Matrix<int, 2, 2> result = (ma + mb) * 2;
 
-	ASSERT_EQ(6, result[0][0]);    // (1+2)*2 = 6
-	ASSERT_EQ(10, result[0][1]);   // (2+3)*2 = 10
-	ASSERT_EQ(14, result[1][0]);   // (3+4)*2 = 14
-	ASSERT_EQ(18, result[1][1]);   // (4+5)*2 = 18
+	ASSERT_EQ(6, result[0][0]); // (1+2)*2 = 6
+	ASSERT_EQ(10, result[0][1]); // (2+3)*2 = 10
+	ASSERT_EQ(14, result[1][0]); // (3+4)*2 = 14
+	ASSERT_EQ(18, result[1][1]); // (4+5)*2 = 18
 }
 
 TEST(MatrixOperators, CombinedSubtractionAndMultiplication) {
 	int a[2][2] = {
-		{5, 6},
-		{7, 8}
+			{5, 6},
+			{7, 8}
 	};
 	int b[2][2] = {
-		{1, 2},
-		{3, 4}
+			{1, 2},
+			{3, 4}
 	};
 	::Matrix<int, 2, 2> ma(a);
 	::Matrix<int, 2, 2> mb(b);
@@ -471,24 +471,24 @@ TEST(MatrixOperators, CombinedSubtractionAndMultiplication) {
 	// (ma - mb) * 2
 	::Matrix<int, 2, 2> result = (ma - mb) * 2;
 
-	ASSERT_EQ(8, result[0][0]);    // (5-1)*2 = 8
-	ASSERT_EQ(8, result[0][1]);    // (6-2)*2 = 8
-	ASSERT_EQ(8, result[1][0]);    // (7-3)*2 = 8
-	ASSERT_EQ(8, result[1][1]);    // (8-4)*2 = 8
+	ASSERT_EQ(8, result[0][0]); // (5-1)*2 = 8
+	ASSERT_EQ(8, result[0][1]); // (6-2)*2 = 8
+	ASSERT_EQ(8, result[1][0]); // (7-3)*2 = 8
+	ASSERT_EQ(8, result[1][1]); // (8-4)*2 = 8
 }
 
 TEST(MatrixOperators, CombinedAdditionAndSubtraction) {
 	int a[2][2] = {
-		{1, 2},
-		{3, 4}
+			{1, 2},
+			{3, 4}
 	};
 	int b[2][2] = {
-		{2, 3},
-		{4, 5}
+			{2, 3},
+			{4, 5}
 	};
 	int c[2][2] = {
-		{1, 1},
-		{1, 1}
+			{1, 1},
+			{1, 1}
 	};
 	::Matrix<int, 2, 2> ma(a);
 	::Matrix<int, 2, 2> mb(b);
@@ -497,41 +497,41 @@ TEST(MatrixOperators, CombinedAdditionAndSubtraction) {
 	// (ma + mb) - mc
 	::Matrix<int, 2, 2> result = (ma + mb) - mc;
 
-	ASSERT_EQ(2, result[0][0]);    // (1+2)-1 = 2
-	ASSERT_EQ(4, result[0][1]);    // (2+3)-1 = 4
-	ASSERT_EQ(6, result[1][0]);    // (3+4)-1 = 6
-	ASSERT_EQ(8, result[1][1]);    // (4+5)-1 = 8
+	ASSERT_EQ(2, result[0][0]); // (1+2)-1 = 2
+	ASSERT_EQ(4, result[0][1]); // (2+3)-1 = 4
+	ASSERT_EQ(6, result[1][0]); // (3+4)-1 = 6
+	ASSERT_EQ(8, result[1][1]); // (4+5)-1 = 8
 }
 
 TEST(MatrixOperators, MultipleMultiplications) {
 	int a[2][2] = {
-		{1, 2},
-		{3, 4}
+			{1, 2},
+			{3, 4}
 	};
 	::Matrix<int, 2, 2> ma(a);
 
 	// ma * 2 * 3
 	::Matrix<int, 2, 2> result = (ma * 2) * 3;
 
-	ASSERT_EQ(6, result[0][0]);    // 1*2*3 = 6
-	ASSERT_EQ(12, result[0][1]);   // 2*2*3 = 12
-	ASSERT_EQ(18, result[1][0]);   // 3*2*3 = 18
-	ASSERT_EQ(24, result[1][1]);   // 4*2*3 = 24
+	ASSERT_EQ(6, result[0][0]); // 1*2*3 = 6
+	ASSERT_EQ(12, result[0][1]); // 2*2*3 = 12
+	ASSERT_EQ(18, result[1][0]); // 3*2*3 = 18
+	ASSERT_EQ(24, result[1][1]); // 4*2*3 = 24
 }
 
 TEST(MatrixOperators, OriginalMatrixUnchangedAfterAddition) {
 	int a[2][2] = {
-		{1, 2},
-		{3, 4}
+			{1, 2},
+			{3, 4}
 	};
 	int b[2][2] = {
-		{5, 6},
-		{7, 8}
+			{5, 6},
+			{7, 8}
 	};
 	::Matrix<int, 2, 2> ma(a);
 	::Matrix<int, 2, 2> mb(b);
 
-	(void)(ma + mb);
+	(void) (ma + mb);
 
 	ASSERT_EQ(1, ma[0][0]);
 	ASSERT_EQ(2, ma[0][1]);
@@ -545,17 +545,17 @@ TEST(MatrixOperators, OriginalMatrixUnchangedAfterAddition) {
 
 TEST(MatrixOperators, OriginalMatrixUnchangedAfterSubtraction) {
 	int a[2][2] = {
-		{5, 7},
-		{9, 11}
+			{5, 7},
+			{9, 11}
 	};
 	int b[2][2] = {
-		{1, 2},
-		{3, 4}
+			{1, 2},
+			{3, 4}
 	};
 	::Matrix<int, 2, 2> ma(a);
 	::Matrix<int, 2, 2> mb(b);
 
-	(void)(ma - mb);
+	(void) (ma - mb);
 
 	ASSERT_EQ(5, ma[0][0]);
 	ASSERT_EQ(7, ma[0][1]);
@@ -569,12 +569,12 @@ TEST(MatrixOperators, OriginalMatrixUnchangedAfterSubtraction) {
 
 TEST(MatrixOperators, OriginalMatrixUnchangedAfterMultiplication) {
 	int a[2][2] = {
-		{1, 2},
-		{3, 4}
+			{1, 2},
+			{3, 4}
 	};
 	::Matrix<int, 2, 2> ma(a);
 
-	(void)(ma * 5);
+	(void) (ma * 5);
 
 	ASSERT_EQ(1, ma[0][0]);
 	ASSERT_EQ(2, ma[0][1]);
@@ -584,16 +584,16 @@ TEST(MatrixOperators, OriginalMatrixUnchangedAfterMultiplication) {
 
 TEST(MatrixOperators, AssociativityOfAddition) {
 	int a[2][2] = {
-		{1, 2},
-		{3, 4}
+			{1, 2},
+			{3, 4}
 	};
 	int b[2][2] = {
-		{2, 3},
-		{4, 5}
+			{2, 3},
+			{4, 5}
 	};
 	int c[2][2] = {
-		{1, 1},
-		{1, 1}
+			{1, 1},
+			{1, 1}
 	};
 	::Matrix<int, 2, 2> ma(a);
 	::Matrix<int, 2, 2> mb(b);
@@ -612,18 +612,18 @@ TEST(MatrixOperators, AssociativityOfAddition) {
 
 TEST(MatrixOperators, DistributivityOfScalarMultiplication) {
 	int a[2][2] = {
-		{1, 2},
-		{3, 4}
+			{1, 2},
+			{3, 4}
 	};
 	int b[2][2] = {
-		{2, 3},
-		{4, 5}
+			{2, 3},
+			{4, 5}
 	};
 	::Matrix<int, 2, 2> ma(a);
 	::Matrix<int, 2, 2> mb(b);
 
 	// k*(A + B) == k*A + k*B
-	int k = 3;
+	int                 k = 3;
 	::Matrix<int, 2, 2> result1 = (ma + mb) * k;
 	::Matrix<int, 2, 2> result2 = (ma * k) + (mb * k);
 
@@ -640,31 +640,30 @@ TEST(MatrixOperators, DistributivityOfScalarMultiplication) {
 
 TEST(MatrixOperators, ComparisonEqualMatrices) {
 	int a[2][3] = {
-		{1, 2, 3},
-		{4, 5, 6}
+			{1, 2, 3},
+			{4, 5, 6}
 	};
 	int b[2][3] = {
-		{1, 2, 3},
-		{4, 5, 6}
+			{1, 2, 3},
+			{4, 5, 6}
 	};
 	::Matrix<int, 2, 3> ma(a);
 	::Matrix<int, 2, 3> mb(b);
-	(void)(ma * 5);
+	(void) (ma * 5);
 	ASSERT_TRUE(ma == mb);
 }
 
 TEST(MatrixOperators, ComparisonDifferentMatrices) {
 	int a[2][3] = {
-		{1, 2, 3},
-		{4, 5, 6}
+			{1, 2, 3},
+			{4, 5, 6}
 	};
 	int b[2][3] = {
-		{1, 2, 3},
-		{4, 0, 6}
+			{1, 2, 3},
+			{4, 0, 6}
 	};
 	::Matrix<int, 2, 3> ma(a);
 	::Matrix<int, 2, 3> mb(b);
 
 	ASSERT_FALSE(ma == mb);
 }
-

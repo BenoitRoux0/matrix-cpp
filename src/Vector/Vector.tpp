@@ -16,19 +16,19 @@ Vector<T, N>::Vector() {
 }
 
 template<typename T, std::size_t N>
-Vector<T, N>::Vector(const T &source) {
+Vector<T, N>::Vector(const T& source) {
 	for (size_t i = 0; i < N; ++i) {
 		_content[i] = source;
 	}
 }
 
 template<typename T, std::size_t N>
-T&	Vector<T, N>::operator[](size_t i) {
+T& Vector<T, N>::operator[](size_t i) {
 	return _content[i];
 }
 
 template<typename T, std::size_t N>
-const T&	Vector<T, N>::operator[](std::size_t i) const {
+const T& Vector<T, N>::operator[](std::size_t i) const {
 	return _content[i];
 }
 

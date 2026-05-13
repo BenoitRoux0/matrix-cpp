@@ -19,8 +19,8 @@ TEST(LerpTests, SupportsExtrapolation) {
 }
 
 TEST(LerpTests, ReturnsFirstVectorAtZero) {
-	float a[3] = {1.5f, 2.5f, 3.5f};
-	float b[3] = {4.5f, 5.5f, 6.5f};
+	float            a[3] = {1.5f, 2.5f, 3.5f};
+	float            b[3] = {4.5f, 5.5f, 6.5f};
 	Vector<float, 3> va(a);
 	Vector<float, 3> vb(b);
 	Vector<float, 3> result = lerp(va, vb, 0.0f);
@@ -31,8 +31,8 @@ TEST(LerpTests, ReturnsFirstVectorAtZero) {
 }
 
 TEST(LerpTests, ReturnsSecondVectorAtOne) {
-	float a[3] = {1.5f, 2.5f, 3.5f};
-	float b[3] = {4.5f, 5.5f, 6.5f};
+	float            a[3] = {1.5f, 2.5f, 3.5f};
+	float            b[3] = {4.5f, 5.5f, 6.5f};
 	Vector<float, 3> va(a);
 	Vector<float, 3> vb(b);
 	Vector<float, 3> result = lerp(va, vb, 1.0f);
@@ -43,8 +43,8 @@ TEST(LerpTests, ReturnsSecondVectorAtOne) {
 }
 
 TEST(LerpTests, InterpolatesVectorMidpoint) {
-	float a[3] = {1.0f, 2.0f, 3.0f};
-	float b[3] = {3.0f, 5.0f, 7.0f};
+	float            a[3] = {1.0f, 2.0f, 3.0f};
+	float            b[3] = {3.0f, 5.0f, 7.0f};
 	Vector<float, 3> va(a);
 	Vector<float, 3> vb(b);
 	Vector<float, 3> result = lerp(va, vb, 0.5f);
@@ -55,8 +55,8 @@ TEST(LerpTests, InterpolatesVectorMidpoint) {
 }
 
 TEST(LerpTests, SupportsVectorExtrapolation) {
-	float a[3] = {1.0f, 2.0f, 3.0f};
-	float b[3] = {3.0f, 5.0f, 7.0f};
+	float            a[3] = {1.0f, 2.0f, 3.0f};
+	float            b[3] = {3.0f, 5.0f, 7.0f};
 	Vector<float, 3> va(a);
 	Vector<float, 3> vb(b);
 	Vector<float, 3> result = lerp(va, vb, -0.5f);
@@ -65,4 +65,3 @@ TEST(LerpTests, SupportsVectorExtrapolation) {
 	ASSERT_FLOAT_EQ(0.5f, result[1]);
 	ASSERT_FLOAT_EQ(1.0f, result[2]);
 }
-

@@ -4,7 +4,7 @@
 
 template<typename T, std::size_t N>
 T Vector<T, N>::norm1() const {
-	T	norm = T();
+	T norm = T();
 
 	for (const auto& v: *this) {
 		norm = norm + std::abs(v);
@@ -15,7 +15,7 @@ T Vector<T, N>::norm1() const {
 
 template<typename T, std::size_t N>
 T Vector<T, N>::norm() const {
-	T	squaredNorm = T();
+	T squaredNorm = T();
 
 	for (const auto& v: *this) {
 		squaredNorm = squaredNorm + v * v;
@@ -26,7 +26,7 @@ T Vector<T, N>::norm() const {
 
 template<typename T, std::size_t N>
 T Vector<T, N>::normInf() const {
-	T	norm = T();
+	T norm = T();
 
 	for (const auto& v: *this) {
 		if (norm < std::abs(v)) {
@@ -36,7 +36,6 @@ T Vector<T, N>::normInf() const {
 
 	return norm;
 }
-
 
 
 #endif // VECTOR_NORM_TPP

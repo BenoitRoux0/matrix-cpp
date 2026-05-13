@@ -4,8 +4,8 @@
 #include <ranges>
 
 TEST(VectorTests, BasicVectorInit) {
-	int	source[5] = {8, 6, 4, 2, 5};
-	Vector<int, 5>	v(source);
+	int            source[5] = {8, 6, 4, 2, 5};
+	Vector<int, 5> v(source);
 
 	for (size_t i = 0; i < 5; ++i) {
 		ASSERT_EQ(source[i], v[i]);
@@ -13,7 +13,7 @@ TEST(VectorTests, BasicVectorInit) {
 }
 
 TEST(VectorTests, BasicZerosVectorInit) {
-	Vector<int, 5>	v;
+	Vector<int, 5> v;
 
 	for (size_t i = 0; i < 5; ++i) {
 		ASSERT_EQ(0, v[i]);
@@ -21,9 +21,9 @@ TEST(VectorTests, BasicZerosVectorInit) {
 }
 
 TEST(VectorTests, BasicVectorIte) {
-	int	source[5] = {8, 6, 4, 2, 5};
-	Vector<int, 5>	v(source);
-	size_t	i = 0;
+	int            source[5] = {8, 6, 4, 2, 5};
+	Vector<int, 5> v(source);
+	size_t         i = 0;
 
 	for (auto value: v) {
 		ASSERT_EQ(source[i], value);

@@ -1,6 +1,8 @@
 #ifndef MATRIX_TPP
 #define MATRIX_TPP
 
+#include <print>
+
 template<typename T, std::size_t M, std::size_t N>
 Matrix<T, M, N>::Matrix() {
 	for (size_t i = 0; i < M; i++) {
@@ -11,7 +13,7 @@ Matrix<T, M, N>::Matrix() {
 }
 
 template<typename T, std::size_t M, std::size_t N>
-Matrix<T, M, N>::Matrix(const T &source) {
+Matrix<T, M, N>::Matrix(const T& source) {
 	for (size_t i = 0; i < M; i++) {
 		for (size_t j = 0; j < N; j++) {
 			_content[i][j] = source;
@@ -29,12 +31,12 @@ Matrix<T, M, N>::Matrix(const T source[M][N]) {
 }
 
 template<typename T, std::size_t M, std::size_t N>
-Vector<T, N> & Matrix<T, M, N>::operator[](size_t i) {
+Vector<T, N>& Matrix<T, M, N>::operator[](size_t i) {
 	return _content[i];
 }
 
 template<typename T, std::size_t M, std::size_t N>
-const Vector<T, N> & Matrix<T, M, N>::operator[](size_t i) const {
+const Vector<T, N>& Matrix<T, M, N>::operator[](size_t i) const {
 	return _content[i];
 }
 
@@ -81,7 +83,11 @@ typename Matrix<T, M, N>::reverse_const_iterator Matrix<T, M, N>::rend() const {
 template<typename T, std::size_t M, std::size_t N>
 void Matrix<T, M, N>::print() const {
 	for (auto vec: *this) {
-		std::print("| {}|\n", vec);
+		std::print("| ");
+		for (auto elem: vec) {
+			std::print("{} ", elem);
+		}
+		std::print("|\n");
 	}
 }
 

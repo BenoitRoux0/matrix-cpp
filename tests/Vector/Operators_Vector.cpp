@@ -7,8 +7,8 @@
 // ============================================================================
 
 TEST(VectorOperators, AdditionBasic) {
-	int a[3] = {1, 2, 3};
-	int b[3] = {4, 5, 6};
+	int            a[3] = {1, 2, 3};
+	int            b[3] = {4, 5, 6};
 	Vector<int, 3> va(a);
 	Vector<int, 3> vb(b);
 
@@ -20,8 +20,8 @@ TEST(VectorOperators, AdditionBasic) {
 }
 
 TEST(VectorOperators, AdditionWithZero) {
-	int a[4] = {1, 2, 3, 4};
-	int zero[4] = {0, 0, 0, 0};
+	int            a[4] = {1, 2, 3, 4};
+	int            zero[4] = {0, 0, 0, 0};
 	Vector<int, 4> va(a);
 	Vector<int, 4> vzero(zero);
 
@@ -33,8 +33,8 @@ TEST(VectorOperators, AdditionWithZero) {
 }
 
 TEST(VectorOperators, AdditionNegativeNumbers) {
-	int a[3] = {5, -3, 2};
-	int b[3] = {-2, 3, -4};
+	int            a[3] = {5, -3, 2};
+	int            b[3] = {-2, 3, -4};
 	Vector<int, 3> va(a);
 	Vector<int, 3> vb(b);
 
@@ -46,8 +46,8 @@ TEST(VectorOperators, AdditionNegativeNumbers) {
 }
 
 TEST(VectorOperators, AdditionFloating) {
-	double a[3] = {1.5, 2.5, 3.5};
-	double b[3] = {0.5, 0.5, 0.5};
+	double            a[3] = {1.5, 2.5, 3.5};
+	double            b[3] = {0.5, 0.5, 0.5};
 	Vector<double, 3> va(a);
 	Vector<double, 3> vb(b);
 
@@ -59,8 +59,8 @@ TEST(VectorOperators, AdditionFloating) {
 }
 
 TEST(VectorOperators, AdditionCommutative) {
-	int a[3] = {1, 2, 3};
-	int b[3] = {4, 5, 6};
+	int            a[3] = {1, 2, 3};
+	int            b[3] = {4, 5, 6};
 	Vector<int, 3> va(a);
 	Vector<int, 3> vb(b);
 
@@ -94,8 +94,8 @@ TEST(VectorOperators, AdditionLargeVector) {
 // ============================================================================
 
 TEST(VectorOperators, SubtractionBasic) {
-	int a[3] = {5, 7, 9};
-	int b[3] = {1, 2, 3};
+	int            a[3] = {5, 7, 9};
+	int            b[3] = {1, 2, 3};
 	Vector<int, 3> va(a);
 	Vector<int, 3> vb(b);
 
@@ -107,8 +107,8 @@ TEST(VectorOperators, SubtractionBasic) {
 }
 
 TEST(VectorOperators, SubtractionFromZero) {
-	int a[3] = {1, 2, 3};
-	int zero[3] = {0, 0, 0};
+	int            a[3] = {1, 2, 3};
+	int            zero[3] = {0, 0, 0};
 	Vector<int, 3> va(a);
 	Vector<int, 3> vzero(zero);
 
@@ -120,7 +120,7 @@ TEST(VectorOperators, SubtractionFromZero) {
 }
 
 TEST(VectorOperators, SubtractionSameVector) {
-	int a[3] = {5, 7, 9};
+	int            a[3] = {5, 7, 9};
 	Vector<int, 3> va(a);
 
 	Vector<int, 3> result = va - va;
@@ -131,8 +131,8 @@ TEST(VectorOperators, SubtractionSameVector) {
 }
 
 TEST(VectorOperators, SubtractionNegativeNumbers) {
-	int a[3] = {-5, -3, 2};
-	int b[3] = {-2, 3, -4};
+	int            a[3] = {-5, -3, 2};
+	int            b[3] = {-2, 3, -4};
 	Vector<int, 3> va(a);
 	Vector<int, 3> vb(b);
 
@@ -144,8 +144,8 @@ TEST(VectorOperators, SubtractionNegativeNumbers) {
 }
 
 TEST(VectorOperators, SubtractionFloating) {
-	double a[3] = {3.5, 2.5, 1.5};
-	double b[3] = {0.5, 0.5, 0.5};
+	double            a[3] = {3.5, 2.5, 1.5};
+	double            b[3] = {0.5, 0.5, 0.5};
 	Vector<double, 3> va(a);
 	Vector<double, 3> vb(b);
 
@@ -157,8 +157,8 @@ TEST(VectorOperators, SubtractionFloating) {
 }
 
 TEST(VectorOperators, SubtractionNotCommutative) {
-	int a[3] = {1, 2, 3};
-	int b[3] = {4, 5, 6};
+	int            a[3] = {1, 2, 3};
+	int            b[3] = {4, 5, 6};
 	Vector<int, 3> va(a);
 	Vector<int, 3> vb(b);
 
@@ -175,7 +175,7 @@ TEST(VectorOperators, SubtractionNotCommutative) {
 // ============================================================================
 
 TEST(VectorOperators, ScalarMultiplicationBasic) {
-	int a[3] = {1, 2, 3};
+	int            a[3] = {1, 2, 3};
 	Vector<int, 3> va(a);
 
 	Vector<int, 3> result = va * 2;
@@ -186,7 +186,7 @@ TEST(VectorOperators, ScalarMultiplicationBasic) {
 }
 
 TEST(VectorOperators, ScalarMultiplicationByZero) {
-	int a[3] = {1, 2, 3};
+	int            a[3] = {1, 2, 3};
 	Vector<int, 3> va(a);
 
 	Vector<int, 3> result = va * 0;
@@ -197,7 +197,7 @@ TEST(VectorOperators, ScalarMultiplicationByZero) {
 }
 
 TEST(VectorOperators, ScalarMultiplicationByOne) {
-	int a[3] = {1, 2, 3};
+	int            a[3] = {1, 2, 3};
 	Vector<int, 3> va(a);
 
 	Vector<int, 3> result = va * 1;
@@ -208,7 +208,7 @@ TEST(VectorOperators, ScalarMultiplicationByOne) {
 }
 
 TEST(VectorOperators, ScalarMultiplicationNegative) {
-	int a[3] = {1, -2, 3};
+	int            a[3] = {1, -2, 3};
 	Vector<int, 3> va(a);
 
 	Vector<int, 3> result = va * (-3);
@@ -219,7 +219,7 @@ TEST(VectorOperators, ScalarMultiplicationNegative) {
 }
 
 TEST(VectorOperators, ScalarMultiplicationFloating) {
-	double a[3] = {1.0, 2.0, 3.0};
+	double            a[3] = {1.0, 2.0, 3.0};
 	Vector<double, 3> va(a);
 
 	Vector<double, 3> result = va * 2.5;
@@ -230,7 +230,7 @@ TEST(VectorOperators, ScalarMultiplicationFloating) {
 }
 
 TEST(VectorOperators, ScalarMultiplicationFractional) {
-	double a[3] = {2.0, 4.0, 6.0};
+	double            a[3] = {2.0, 4.0, 6.0};
 	Vector<double, 3> va(a);
 
 	Vector<double, 3> result = va * 0.5;
@@ -247,7 +247,7 @@ TEST(VectorOperators, ScalarMultiplicationLargeVector) {
 		a[i] = i;
 	}
 	Vector<int, 100> va(a);
-	int scalar = 3;
+	int              scalar = 3;
 
 	Vector<int, 100> result = va * scalar;
 
@@ -318,8 +318,8 @@ TEST(VectorOperators, LinearCombinationMultipleVectors) {
 
 	Vector<int, 2> result = Vector<int, 2>::linearCombination<3>(vectors, coefs);
 
-	ASSERT_EQ(4, result[0]);    // 1*1 + 0*2 + 1*3 = 4
-	ASSERT_EQ(5, result[1]);    // 0*1 + 1*2 + 1*3 = 5
+	ASSERT_EQ(4, result[0]); // 1*1 + 0*2 + 1*3 = 4
+	ASSERT_EQ(5, result[1]); // 0*1 + 1*2 + 1*3 = 5
 }
 
 TEST(VectorOperators, LinearCombinationNegativeCoefficients) {
@@ -333,9 +333,9 @@ TEST(VectorOperators, LinearCombinationNegativeCoefficients) {
 
 	Vector<int, 3> result = Vector<int, 3>::linearCombination<2>(vectors, coefs);
 
-	ASSERT_EQ(1, result[0]);    // 3*1 + (-1)*2 = 1
-	ASSERT_EQ(2, result[1]);    // 3*2 + (-1)*4 = 2
-	ASSERT_EQ(3, result[2]);    // 3*3 + (-1)*6 = 3
+	ASSERT_EQ(1, result[0]); // 3*1 + (-1)*2 = 1
+	ASSERT_EQ(2, result[1]); // 3*2 + (-1)*4 = 2
+	ASSERT_EQ(3, result[2]); // 3*3 + (-1)*6 = 3
 }
 
 TEST(VectorOperators, LinearCombinationFloatingPoint) {
@@ -389,7 +389,7 @@ TEST(VectorOperators, LinearCombinationLargeVectors) {
 	Vector<int, 10> result = Vector<int, 10>::linearCombination<2>(vectors, coefs);
 
 	for (size_t i = 0; i < 10; ++i) {
-		ASSERT_EQ(8, result[i]);    // 2*1 + 3*2 = 8
+		ASSERT_EQ(8, result[i]); // 2*1 + 3*2 = 8
 	}
 }
 
@@ -398,37 +398,37 @@ TEST(VectorOperators, LinearCombinationLargeVectors) {
 // ============================================================================
 
 TEST(VectorOperators, CombinedAdditionAndMultiplication) {
-	int a[3] = {1, 2, 3};
-	int b[3] = {2, 3, 4};
+	int            a[3] = {1, 2, 3};
+	int            b[3] = {2, 3, 4};
 	Vector<int, 3> va(a);
 	Vector<int, 3> vb(b);
 
 	// (va + vb) * 2
 	Vector<int, 3> result = (va + vb) * 2;
 
-	ASSERT_EQ(6, result[0]);    // (1+2)*2 = 6
-	ASSERT_EQ(10, result[1]);   // (2+3)*2 = 10
-	ASSERT_EQ(14, result[2]);   // (3+4)*2 = 14
+	ASSERT_EQ(6, result[0]); // (1+2)*2 = 6
+	ASSERT_EQ(10, result[1]); // (2+3)*2 = 10
+	ASSERT_EQ(14, result[2]); // (3+4)*2 = 14
 }
 
 TEST(VectorOperators, CombinedSubtractionAndMultiplication) {
-	int a[3] = {5, 6, 7};
-	int b[3] = {1, 2, 3};
+	int            a[3] = {5, 6, 7};
+	int            b[3] = {1, 2, 3};
 	Vector<int, 3> va(a);
 	Vector<int, 3> vb(b);
 
 	// (va - vb) * 2
 	Vector<int, 3> result = (va - vb) * 2;
 
-	ASSERT_EQ(8, result[0]);    // (5-1)*2 = 8
-	ASSERT_EQ(8, result[1]);    // (6-2)*2 = 8
-	ASSERT_EQ(8, result[2]);    // (7-3)*2 = 8
+	ASSERT_EQ(8, result[0]); // (5-1)*2 = 8
+	ASSERT_EQ(8, result[1]); // (6-2)*2 = 8
+	ASSERT_EQ(8, result[2]); // (7-3)*2 = 8
 }
 
 TEST(VectorOperators, CombinedAdditionAndSubtraction) {
-	int a[3] = {1, 2, 3};
-	int b[3] = {2, 3, 4};
-	int c[3] = {1, 1, 1};
+	int            a[3] = {1, 2, 3};
+	int            b[3] = {2, 3, 4};
+	int            c[3] = {1, 1, 1};
 	Vector<int, 3> va(a);
 	Vector<int, 3> vb(b);
 	Vector<int, 3> vc(c);
@@ -436,14 +436,14 @@ TEST(VectorOperators, CombinedAdditionAndSubtraction) {
 	// (va + vb) - vc
 	Vector<int, 3> result = (va + vb) - vc;
 
-	ASSERT_EQ(2, result[0]);    // (1+2)-1 = 2
-	ASSERT_EQ(4, result[1]);    // (2+3)-1 = 4
-	ASSERT_EQ(6, result[2]);    // (3+4)-1 = 6
+	ASSERT_EQ(2, result[0]); // (1+2)-1 = 2
+	ASSERT_EQ(4, result[1]); // (2+3)-1 = 4
+	ASSERT_EQ(6, result[2]); // (3+4)-1 = 6
 }
 
 TEST(VectorOperators, OriginalVectorUnchangedAfterAddition) {
-	int a[3] = {1, 2, 3};
-	int b[3] = {4, 5, 6};
+	int            a[3] = {1, 2, 3};
+	int            b[3] = {4, 5, 6};
 	Vector<int, 3> va(a);
 	Vector<int, 3> vb(b);
 
@@ -459,8 +459,8 @@ TEST(VectorOperators, OriginalVectorUnchangedAfterAddition) {
 }
 
 TEST(VectorOperators, OriginalVectorUnchangedAfterSubtraction) {
-	int a[3] = {5, 7, 9};
-	int b[3] = {1, 2, 3};
+	int            a[3] = {5, 7, 9};
+	int            b[3] = {1, 2, 3};
 	Vector<int, 3> va(a);
 	Vector<int, 3> vb(b);
 
@@ -476,7 +476,7 @@ TEST(VectorOperators, OriginalVectorUnchangedAfterSubtraction) {
 }
 
 TEST(VectorOperators, OriginalVectorUnchangedAfterMultiplication) {
-	int a[3] = {1, 2, 3};
+	int            a[3] = {1, 2, 3};
 	Vector<int, 3> va(a);
 
 	[[maybe_unused]] Vector<int, 3> result = va * 5;
@@ -492,8 +492,8 @@ TEST(VectorOperators, OriginalVectorUnchangedAfterMultiplication) {
 // ============================================================================
 
 TEST(VectorOperators, ComparisonEqualVectors) {
-	int a[4] = {1, 2, 3, 4};
-	int b[4] = {1, 2, 3, 4};
+	int            a[4] = {1, 2, 3, 4};
+	int            b[4] = {1, 2, 3, 4};
 	Vector<int, 4> va(a);
 	Vector<int, 4> vb(b);
 
@@ -501,11 +501,10 @@ TEST(VectorOperators, ComparisonEqualVectors) {
 }
 
 TEST(VectorOperators, ComparisonDifferentVectors) {
-	int a[4] = {1, 2, 3, 4};
-	int b[4] = {1, 2, 0, 4};
+	int            a[4] = {1, 2, 3, 4};
+	int            b[4] = {1, 2, 0, 4};
 	Vector<int, 4> va(a);
 	Vector<int, 4> vb(b);
 
 	ASSERT_FALSE(va == vb);
 }
-

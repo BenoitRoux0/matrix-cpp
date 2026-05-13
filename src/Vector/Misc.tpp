@@ -3,7 +3,7 @@
 
 template<typename T, std::size_t N>
 std::size_t Vector<T, N>::countZeros() const {
-	std::size_t	count = 0;
+	std::size_t count = 0;
 
 	for (auto value: *this) {
 		if (value != 0)

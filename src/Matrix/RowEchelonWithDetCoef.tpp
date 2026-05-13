@@ -3,8 +3,8 @@
 
 template<typename T, std::size_t M, std::size_t N>
 std::tuple<Matrix<T, M, N>, T> Matrix<T, M, N>::rowEchelonWithDetCoef() const {
-	Matrix	mat(*this);
-	T		detCoef = T(1);
+	Matrix mat(*this);
+	T      detCoef = T(1);
 
 	for (auto row = mat.begin(); row + 1 != mat.end(); ++row) {
 		auto leftMost = mat.findLeftMost(row);

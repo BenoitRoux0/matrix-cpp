@@ -7,19 +7,19 @@ public:
 	using iterator_category = std::random_access_iterator_tag;
 	using difference_type = std::ptrdiff_t;
 	using value_type = T;
-	using pointer = value_type *;
-	using reference = value_type &;
+	using pointer = value_type*;
+	using reference = value_type&;
 
-	random_access_iterator() :
+	random_access_iterator():
 		_ptr(nullptr) {}
 
-	random_access_iterator(pointer ptr) :
+	random_access_iterator(pointer ptr):
 		_ptr(ptr) {}
 
 	reference operator*() const { return *_ptr; }
-	pointer operator->() { return _ptr; }
+	pointer   operator->() const { return _ptr; }
 
-	random_access_iterator &operator++() {
+	random_access_iterator& operator++() {
 		++_ptr;
 		return *this;
 	}
@@ -30,7 +30,7 @@ public:
 		return tmp;
 	}
 
-	random_access_iterator &operator--() {
+	random_access_iterator& operator--() {
 		--_ptr;
 		return *this;
 	}
@@ -41,28 +41,28 @@ public:
 		return tmp;
 	}
 
-	difference_type operator-(const random_access_iterator &rhs) const { return _ptr - rhs._ptr; }
+	difference_type operator-(const random_access_iterator& rhs) const { return _ptr - rhs._ptr; }
 
-	bool operator==(const random_access_iterator &rhs) const { return _ptr == rhs._ptr; }
-	bool operator!=(const random_access_iterator &rhs) const { return _ptr != rhs._ptr; }
-	bool operator<(const random_access_iterator &rhs) const { return _ptr < rhs._ptr; }
-	bool operator<=(const random_access_iterator &rhs) const { return _ptr <= rhs._ptr; }
-	bool operator>(const random_access_iterator &rhs) const { return _ptr > rhs._ptr; }
-	bool operator>=(const random_access_iterator &rhs) const { return _ptr >= rhs._ptr; }
+	bool operator==(const random_access_iterator& rhs) const { return _ptr == rhs._ptr; }
+	bool operator!=(const random_access_iterator& rhs) const { return _ptr != rhs._ptr; }
+	bool operator<(const random_access_iterator& rhs) const { return _ptr < rhs._ptr; }
+	bool operator<=(const random_access_iterator& rhs) const { return _ptr <= rhs._ptr; }
+	bool operator>(const random_access_iterator& rhs) const { return _ptr > rhs._ptr; }
+	bool operator>=(const random_access_iterator& rhs) const { return _ptr >= rhs._ptr; }
 
-	friend random_access_iterator operator+(difference_type diff, const random_access_iterator &ite) {
+	friend random_access_iterator operator+(difference_type diff, const random_access_iterator& ite) {
 		return ite + diff;
 	};
 	random_access_iterator operator+(difference_type diff) const { return _ptr + diff; }
 
-	random_access_iterator &operator+=(difference_type diff) {
+	random_access_iterator& operator+=(difference_type diff) {
 		_ptr += diff;
 		return *this;
 	}
 
 	random_access_iterator operator-(difference_type diff) const { return _ptr - diff; }
 
-	random_access_iterator &operator-=(difference_type diff) {
+	random_access_iterator& operator-=(difference_type diff) {
 		_ptr -= diff;
 		return *this;
 	}
@@ -79,19 +79,19 @@ public:
 	using iterator_category = std::bidirectional_iterator_tag;
 	using difference_type = std::ptrdiff_t;
 	using value_type = T;
-	using pointer = T *;
-	using reference = T &;
+	using pointer = T*;
+	using reference = T&;
 
-	reverse_bidirectional_iterator() :
+	reverse_bidirectional_iterator():
 		_ptr(nullptr) {}
 
-	reverse_bidirectional_iterator(pointer ptr) :
+	reverse_bidirectional_iterator(pointer ptr):
 		_ptr(ptr) {}
 
 	reference operator*() const { return *_ptr; }
-	pointer operator->() { return _ptr; }
+	pointer   operator->() const { return _ptr; }
 
-	reverse_bidirectional_iterator &operator++() {
+	reverse_bidirectional_iterator& operator++() {
 		--_ptr;
 		return *this;
 	}
@@ -102,7 +102,7 @@ public:
 		return tmp;
 	}
 
-	reverse_bidirectional_iterator &operator--() {
+	reverse_bidirectional_iterator& operator--() {
 		++_ptr;
 		return *this;
 	}
@@ -113,12 +113,31 @@ public:
 		return tmp;
 	}
 
-	bool operator==(const reverse_bidirectional_iterator &rhs) const { return _ptr == rhs._ptr; }
-	bool operator!=(const reverse_bidirectional_iterator &rhs) const { return _ptr != rhs._ptr; }
+	bool operator==(const reverse_bidirectional_iterator& rhs) const { return _ptr == rhs._ptr; }
+	bool operator!=(const reverse_bidirectional_iterator& rhs) const { return _ptr != rhs._ptr; }
 
 private:
 	pointer _ptr;
 };
 
+template<typename T>
+bool operator==(const reverse_bidirectional_iterator<T>& lhs, const random_access_iterator<T>& rhs) {
+	return lhs.operator->() == rhs.operator->();
+}
+
+template<typename T>
+bool operator==(const random_access_iterator<T>& lhs, const reverse_bidirectional_iterator<T>& rhs) {
+	return lhs.operator->() == rhs.operator->();
+}
+
+template<typename T>
+bool operator!=(const reverse_bidirectional_iterator<T>& lhs, const random_access_iterator<T>& rhs) {
+	return lhs.operator->() != rhs.operator->();
+}
+
+template<typename T>
+bool operator!=(const random_access_iterator<T>& lhs, const reverse_bidirectional_iterator<T>& rhs) {
+	return lhs.operator->() != rhs.operator->();
+}
 
 #endif // ITERATOR_HPP
