@@ -84,12 +84,13 @@ public:
 	template<std::size_t P>
 	std::tuple<Matrix<T, M, P>, Matrix<T, M, N - P>> split() const requires(P <= N);
 
+	std::size_t	rank();
+
 	static Matrix identity() requires(M == N);
 
 	bool operator==(const Matrix& rhs) const;
 
 	void print() const;
-
 private:
 	Vector<T, N> _content[M];
 };
@@ -110,5 +111,6 @@ private:
 #include "Matrix/Identity.tpp"
 #include "Matrix/Append.tpp"
 #include "Matrix/Split.tpp"
+#include "Matrix/Rank.tpp"
 
 #endif // MATRIX_HPP
