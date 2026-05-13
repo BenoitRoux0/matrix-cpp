@@ -24,8 +24,16 @@ enable_testing()
 
 add_executable(
         matrix_tests
+        tests/Misc/Lerp.cpp
         tests/Matrix/Basic_Matrix.cpp
+        tests/Matrix/Operators_Matrix.cpp
+        tests/Matrix/Trace_Transpose_RowEchelon.cpp
+        tests/Matrix/Inverse.cpp
         tests/Vector/Basic_Vector.cpp
+        tests/Vector/Operators_Vector.cpp
+        tests/Vector/CrossCosine.cpp
+        tests/Vector/Dot.cpp
+        tests/Vector/Norms.cpp
 )
 
 target_link_libraries(

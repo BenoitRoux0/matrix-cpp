@@ -1,5 +1,6 @@
 #include <gtest/gtest.h>
 #include "Vector.hpp"
+#include "Misc.hpp"
 #include <ranges>
 
 TEST(VectorTests, BasicVectorInit) {
