@@ -1,12 +1,22 @@
 #ifndef MATRIX_HPP
 #define MATRIX_HPP
 #include "Vector.hpp"
+#include "Iterators.hpp"
 
 template <typename T, std::size_t M, std::size_t N>
 class Matrix {
 public:
-	using iterator = Vector<T, N>*;
-	using const_iterator = const Vector<T, N>*;
+	using iterator = random_access_iterator<Vector<T, N>>;
+	static_assert(std::random_access_iterator<iterator>);
+
+	using const_iterator = random_access_iterator<const Vector<T, N>>;
+	static_assert(std::random_access_iterator<const_iterator>);
+
+	using reverse_iterator = reverse_bidirectional_iterator<Vector<T, N>>;
+	static_assert(std::bidirectional_iterator<reverse_iterator>);
+
+	using reverse_const_iterator = reverse_bidirectional_iterator<const Vector<T, N>>;
+	static_assert(std::bidirectional_iterator<reverse_const_iterator>);
 
 	Matrix();
 	Matrix(const T& source);
