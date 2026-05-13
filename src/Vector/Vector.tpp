@@ -52,4 +52,11 @@ typename Vector<T, N>::const_iterator Vector<T, N>::end() const {
 	return _content + N;
 }
 
+template<typename T, std::size_t N>
+void Vector<T, N>::print() const {
+	for (auto val: *this) {
+		std::print("{} ", val);
+	}
+}
+
 #endif // VECTOR_TPP

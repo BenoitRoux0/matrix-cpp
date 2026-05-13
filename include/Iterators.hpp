@@ -1,20 +1,20 @@
 #ifndef ITERATOR_HPP
 #define ITERATOR_HPP
 
-template <typename T>
+template<typename T>
 class random_access_iterator {
 public:
 	using iterator_category = std::random_access_iterator_tag;
 	using difference_type = std::ptrdiff_t;
 	using value_type = T;
-	using pointer = value_type*;
-	using reference = value_type&;
+	using pointer = value_type *;
+	using reference = value_type &;
 
-	random_access_iterator() : _ptr(nullptr) {
-	}
+	random_access_iterator() :
+		_ptr(nullptr) {}
 
-	random_access_iterator(pointer ptr) : _ptr(ptr) {
-	}
+	random_access_iterator(pointer ptr) :
+		_ptr(ptr) {}
 
 	reference operator*() const { return *_ptr; }
 	pointer operator->() { return _ptr; }
@@ -50,7 +50,9 @@ public:
 	bool operator>(const random_access_iterator &rhs) const { return _ptr > rhs._ptr; }
 	bool operator>=(const random_access_iterator &rhs) const { return _ptr >= rhs._ptr; }
 
-	friend random_access_iterator operator+(difference_type diff, const random_access_iterator &ite) { return ite + diff; };
+	friend random_access_iterator operator+(difference_type diff, const random_access_iterator &ite) {
+		return ite + diff;
+	};
 	random_access_iterator operator+(difference_type diff) const { return _ptr + diff; }
 
 	random_access_iterator &operator+=(difference_type diff) {
@@ -71,20 +73,20 @@ private:
 	pointer _ptr;
 };
 
-template <typename T>
+template<typename T>
 class reverse_bidirectional_iterator {
 public:
 	using iterator_category = std::bidirectional_iterator_tag;
 	using difference_type = std::ptrdiff_t;
 	using value_type = T;
-	using pointer = T*;
-	using reference = T&;
+	using pointer = T *;
+	using reference = T &;
 
-	reverse_bidirectional_iterator() : _ptr(nullptr) {
-	}
+	reverse_bidirectional_iterator() :
+		_ptr(nullptr) {}
 
-	reverse_bidirectional_iterator(pointer ptr) : _ptr(ptr) {
-	}
+	reverse_bidirectional_iterator(pointer ptr) :
+		_ptr(ptr) {}
 
 	reference operator*() const { return *_ptr; }
 	pointer operator->() { return _ptr; }
@@ -113,6 +115,7 @@ public:
 
 	bool operator==(const reverse_bidirectional_iterator &rhs) const { return _ptr == rhs._ptr; }
 	bool operator!=(const reverse_bidirectional_iterator &rhs) const { return _ptr != rhs._ptr; }
+
 private:
 	pointer _ptr;
 };

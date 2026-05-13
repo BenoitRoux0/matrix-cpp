@@ -58,4 +58,11 @@ typename Matrix<T, M, N>::const_iterator Matrix<T, M, N>::end() const {
 	return _content + M;
 }
 
+template<typename T, std::size_t M, std::size_t N>
+void Matrix<T, M, N>::print() const {
+	for (auto vec: *this) {
+		std::print("| {}|\n", vec);
+	}
+}
+
 #endif // MATRIX_TPP
