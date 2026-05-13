@@ -1,12 +1,15 @@
 cmake_minimum_required(VERSION 3.20)
 
 set(CMAKE_CXX_STANDARD 23)
+add_compile_options(-Wall -Wextra -Werror)
+add_compile_options(-fconcepts-diagnostics-depth=5)
+add_link_options(-Wl,-rpath=/home/beroux/apps/gcc-16.1.0/lib64)
 
 project(matrix)
 
 add_library(matrix INTERFACE src/Matrix/Matrix.tpp src/Vector/Vector.tpp)
 
-target_include_directories(matrix INTERFACE include src/Matrix src/Vector)
+target_include_directories(matrix INTERFACE include src)
 
 include(FetchContent)
 FetchContent_Declare(
