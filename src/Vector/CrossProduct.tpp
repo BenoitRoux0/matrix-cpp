@@ -2,7 +2,7 @@
 #define VECTOR_CROSS_PRODUCT_TPP
 
 template<typename T, std::size_t N>
-Vector<T, N> Vector<T, N>::crossProduct(const Vector& rhs) const requires (N == 3) {
+Vector<T, N> Vector<T, N>::crossProduct(const Vector& rhs) const requires (N == 3 && Multiplicable<T> && Subtractable<T>) {
 	Vector product;
 
 	product[0] = (*this)[1] * rhs[2] - (*this)[2] * rhs[1];

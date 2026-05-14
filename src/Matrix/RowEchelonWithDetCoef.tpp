@@ -2,7 +2,7 @@
 #define MATRIX_ROW_ECHELON_WITH_DET_COEF_TPP
 
 template<typename T, std::size_t M, std::size_t N>
-std::tuple<Matrix<T, M, N>, T> Matrix<T, M, N>::rowEchelonWithDetCoef() const {
+std::tuple<Matrix<T, M, N>, T> Matrix<T, M, N>::rowEchelonWithDetCoef() const requires(Equatable<T> && Multiplicable<T> && Divisible<T> && Subtractable<T>) {
 	Matrix mat(*this);
 	T      detCoef = T(1);
 

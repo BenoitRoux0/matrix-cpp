@@ -2,8 +2,9 @@
 #define MATRIX_ROW_ECHELON_TPP
 
 template<typename T, std::size_t M, std::size_t N>
-Matrix<T, M, N> Matrix<T, M, N>::rowEchelon() const {
+Matrix<T, M, N> Matrix<T, M, N>::rowEchelon() const requires(Equatable<T> && Multiplicable<T> && Divisible<T> && Subtractable<T>) {
 	Matrix mat(*this);
+	T      zero = T();
 
 	for (auto row = mat.begin(); row != mat.end(); ++row) {
 		auto leftMost = mat.findLeftMost(row);
@@ -12,7 +13,7 @@ Matrix<T, M, N> Matrix<T, M, N>::rowEchelon() const {
 
 		auto pivot = row->getPivot();
 
-		if (pivot == 0)
+		if (pivot == zero)
 			return mat;
 
 		*row *= 1 / pivot;

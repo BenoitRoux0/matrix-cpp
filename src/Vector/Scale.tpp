@@ -3,7 +3,7 @@
 #include <ranges>
 
 template<typename T, std::size_t N>
-Vector<T, N> Vector<T, N>::operator*(const T& scalar) const {
+Vector<T, N> Vector<T, N>::operator*(const T& scalar) const requires(Multiplicable<T>) {
 	Vector v(*this);
 
 	for (auto& val: v) {
@@ -14,12 +14,12 @@ Vector<T, N> Vector<T, N>::operator*(const T& scalar) const {
 }
 
 template<typename T, std::size_t N>
-Vector<T, N> operator*(const T& scalar, const Vector<T, N>& vec) {
+Vector<T, N> operator*(const T& scalar, const Vector<T, N>& vec) requires(Multiplicable<T>) {
 	return vec * scalar;
 }
 
 template<typename T, std::size_t N>
-Vector<T, N> Vector<T, N>::operator*=(const T& scalar) {
+Vector<T, N> Vector<T, N>::operator*=(const T& scalar) requires(Multiplicable<T>) {
 	for (auto& val: *this) {
 		val *= scalar;
 	}

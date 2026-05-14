@@ -72,11 +72,4 @@ typename Vector<T, N>::reverse_const_iterator Vector<T, N>::rend() const {
 	return _content - 1;
 }
 
-template<typename T, std::size_t N>
-void Vector<T, N>::print() const {
-	for (auto val: *this) {
-		std::print("{} ", val);
-	}
-}
-
 #endif // VECTOR_TPP

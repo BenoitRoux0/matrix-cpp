@@ -1,4 +1,5 @@
 #include <gtest/gtest.h>
+#include <print>
 #include "Matrix.hpp"
 
 TEST(MatrixOperations, TraceBasicSquareMatrix) {
@@ -66,8 +67,7 @@ TEST(MatrixOperations, RowEchelonSimpleReduction) {
 
 	Matrix<double, 2, 2> r = m.rowEchelon();
 
-	m.print();
-	r.print();
+	std::print("{}\n{}\n", m, r);
 
 	// Expect first row unchanged (pivot 1), second row reduced by 3*first
 	ASSERT_EQ(1, r[0][0]);

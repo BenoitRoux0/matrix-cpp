@@ -10,7 +10,7 @@ void Matrix<T, M, N>::swapRows(iterator r1, iterator r2) {
 }
 
 template<typename T, std::size_t M, std::size_t N>
-Matrix<T, M, N>::iterator Matrix<T, M, N>::findLeftMost(iterator start) {
+Matrix<T, M, N>::iterator Matrix<T, M, N>::findLeftMost(iterator start) requires(Equatable<T>) {
 	iterator    found = start;
 	std::size_t count = start->countZeros();
 
@@ -25,7 +25,7 @@ Matrix<T, M, N>::iterator Matrix<T, M, N>::findLeftMost(iterator start) {
 }
 
 template<typename T, std::size_t M, std::size_t N>
-Matrix<T, M, N>::const_iterator Matrix<T, M, N>::findLeftMost(const const_iterator start) const {
+Matrix<T, M, N>::const_iterator Matrix<T, M, N>::findLeftMost(const const_iterator start) const requires(Equatable<T>) {
 	const_iterator found = start;
 	std::size_t    count = start->countZeros();
 

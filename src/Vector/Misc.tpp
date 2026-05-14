@@ -2,11 +2,12 @@
 #define VECTOR_MISC_TPP
 
 template<typename T, std::size_t N>
-std::size_t Vector<T, N>::countZeros() const {
+std::size_t Vector<T, N>::countZeros() const requires(Equatable<T>) {
 	std::size_t count = 0;
+	T           zero = T();
 
 	for (auto value: *this) {
-		if (value != 0)
+		if (!(value == zero))
 			return count;
 		++count;
 	}
@@ -15,9 +16,11 @@ std::size_t Vector<T, N>::countZeros() const {
 }
 
 template<typename T, std::size_t N>
-T Vector<T, N>::getPivot() const {
+T Vector<T, N>::getPivot() const requires(Equatable<T>) {
+	T zero = T();
+
 	for (auto value: *this) {
-		if (value != 0)
+		if (!(value == zero))
 			return value;
 	}
 

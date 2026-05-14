@@ -2,9 +2,9 @@
 #define VECTOR_COMP_TPP
 
 template<typename T, std::size_t N>
-bool Vector<T, N>::operator==(const Vector& rhs) const {
+bool Vector<T, N>::operator==(const Vector& rhs) const requires(Equatable<T>) {
 	for (const auto& [lValue, rValue]: std::views::zip(*this, rhs)) {
-		if (lValue != rValue)
+		if (!(lValue == rValue))
 			return false;
 	}
 

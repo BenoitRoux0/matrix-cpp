@@ -2,7 +2,7 @@
 #define MATRIX_RANK_TPP
 
 template<typename T, std::size_t M, std::size_t N>
-std::size_t Matrix<T, M, N>::rank() {
+std::size_t Matrix<T, M, N>::rank() const requires(Equatable<T> && Multiplicable<T> && Divisible<T> && Subtractable<T>) {
 	auto        mat = rowEchelon();
 	std::size_t rank = 0;
 

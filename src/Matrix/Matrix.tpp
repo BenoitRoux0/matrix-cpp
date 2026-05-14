@@ -80,15 +80,4 @@ typename Matrix<T, M, N>::reverse_const_iterator Matrix<T, M, N>::rend() const {
 	return _content - 1;
 }
 
-template<typename T, std::size_t M, std::size_t N>
-void Matrix<T, M, N>::print() const {
-	for (auto vec: *this) {
-		std::print("| ");
-		for (auto elem: vec) {
-			std::print("{} ", elem);
-		}
-		std::print("|\n");
-	}
-}
-
 #endif // MATRIX_TPP

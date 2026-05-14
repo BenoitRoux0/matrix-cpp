@@ -1,5 +1,7 @@
 #ifndef MATRIX_HPP
 #define MATRIX_HPP
+
+#include "Traits.hpp"
 #include "Vector.hpp"
 #include "Iterators.hpp"
 
@@ -19,13 +21,10 @@ public:
 	static_assert(std::bidirectional_iterator<reverse_const_iterator>);
 
 	Matrix();
-
+	Matrix(const T source[M][N]);
 	explicit Matrix(const T& source);
 
-	Matrix(const T source[M][N]);
-
-	Vector<T, N>& operator[](size_t i);
-
+	Vector<T, N>&       operator[](size_t i);
 	const Vector<T, N>& operator[](size_t i) const;
 
 	iterator begin();
@@ -40,59 +39,65 @@ public:
 	reverse_const_iterator rbegin() const;
 	reverse_const_iterator rend() const;
 
-	Matrix operator+(const Matrix& rhs) const;
-
-	Matrix operator-(const Matrix& rhs) const;
-
-	Matrix operator*(const T& scalar) const;
-
-	Matrix& operator+=(const Matrix& rhs);
-
-	Matrix& operator-=(const Matrix& rhs);
-
-	Matrix& operator*=(const T& scalar);
-
+	Matrix  operator+(const Matrix& rhs) const requires(Addable<T>);
+	Matrix  operator-(const Matrix& rhs) const requires(Subtractable<T>);
+	Matrix  operator*(const T& scalar) const requires(Multiplicable<T>);
+	Matrix& operator+=(const Matrix& rhs) requires(Addable<T>);
+	Matrix& operator-=(const Matrix& rhs) requires(Subtractable<T>);
+	Matrix& operator*=(const T& scalar) requires(Multiplicable<T>);
 	template<std::size_t P>
-	Matrix<T, M, P> operator*(const Matrix<T, N, P>&) const;
+	Matrix<T, M, P> operator*(const Matrix<T, N, P>&) const requires(Addable<T> && Multiplicable<T>);
+	Vector<T, M>    operator*(const Vector<T, N>&) const;
 
-	Vector<T, M> operator*(const Vector<T, N>&) const;
-
-	T trace() const requires(M == N);
+	T trace() const requires(M == N && Addable<T>);
 
 	Matrix<T, N, M> transpose() const;
 
-	void swapRows(iterator r1, iterator r2);
+	void           swapRows(iterator r1, iterator r2);
+	iterator       findLeftMost(iterator start) requires(Equatable<T>);
+	const_iterator findLeftMost(const_iterator start) const requires(Equatable<T>);
 
-	iterator findLeftMost(iterator start);
+	Matrix rowEchelon() const requires(Equatable<T> && Multiplicable<T> && Divisible<T> && Subtractable<T>);
 
-	const_iterator findLeftMost(const_iterator start) const;
+	std::tuple<Matrix, T> rowEchelonWithDetCoef() const requires(
+		Equatable<T> && Multiplicable<T> && Divisible<T> && Subtractable<T>);
 
-	Matrix rowEchelon() const;
+	T determinant() const requires(M == N && Equatable<T> && Multiplicable<T> && Divisible<T> && Subtractable<T>);
 
-	std::tuple<Matrix, T> rowEchelonWithDetCoef() const;
-
-	T determinant() const requires(M == N);
-
-	Matrix inverse() const requires(M == N);
+	Matrix inverse() const requires(M == N && Equatable<T> && Multiplicable<T> && Divisible<T> && Subtractable<T>);
 
 	template<std::size_t P>
 	Matrix<T, M, N + P> append(const Matrix<T, M, P>& right) const;
-
 	template<std::size_t P>
 	Matrix<T, M, N + P> operator|(const Matrix<T, M, P>& right) const;
-
 	template<std::size_t P>
 	std::tuple<Matrix<T, M, P>, Matrix<T, M, N - P>> split() const requires(P <= N);
 
-	std::size_t	rank();
+	std::size_t rank() const requires(Equatable<T> && Multiplicable<T> && Divisible<T> && Subtractable<T>);
 
 	static Matrix identity() requires(M == N);
 
-	bool operator==(const Matrix& rhs) const;
+	bool operator==(const Matrix& rhs) const requires(Equatable<T>);
 
-	void print() const;
 private:
 	Vector<T, N> _content[M];
+};
+
+template<typename T, std::size_t M, std::size_t N>
+struct std::formatter<Matrix<T, M, N>>: std::formatter<string_view> {
+	constexpr auto parse(std::format_parse_context& ctx) {
+		return ctx.begin();
+	}
+
+	auto format(const Matrix<T, M, N>& mat, std::format_context& ctx) const {
+		std::string	tmp;
+
+		for (auto vec: mat) {
+			std::format_to(std::back_inserter(tmp), "{}\n", vec);
+		}
+
+		return std::formatter<string_view>::format(tmp, ctx);
+	}
 };
 
 #include "Matrix/Matrix.tpp"

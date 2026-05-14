@@ -7,9 +7,10 @@ add_link_options(-Wl,-rpath=/home/beroux/apps/gcc-16.1.0/lib64)
 
 project(matrix)
 
-add_library(matrix INTERFACE src/Matrix/Matrix.tpp src/Vector/Vector.tpp)
+add_library(matrix STATIC)
+target_sources(matrix PUBLIC src/Complex/Complex.cpp)
 
-target_include_directories(matrix INTERFACE include src)
+target_include_directories(matrix PUBLIC include src)
 
 include(FetchContent)
 FetchContent_Declare(
@@ -44,3 +45,13 @@ target_link_libraries(
 
 include(GoogleTest)
 gtest_discover_tests(matrix_tests)
+
+add_executable(
+        demo
+        demo/main.cpp
+)
+
+target_link_libraries(
+        demo
+        matrix
+)

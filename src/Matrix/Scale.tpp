@@ -2,7 +2,7 @@
 #define MATRIX_SCALE_TPP
 
 template<typename T, std::size_t M, std::size_t N>
-Matrix<T, M, N> Matrix<T, M, N>::operator*(const T& scalar) const {
+Matrix<T, M, N> Matrix<T, M, N>::operator*(const T& scalar) const requires(Multiplicable<T>) {
 	Matrix m(*this);
 
 	for (auto& val: m) {
@@ -13,7 +13,7 @@ Matrix<T, M, N> Matrix<T, M, N>::operator*(const T& scalar) const {
 }
 
 template<typename T, std::size_t M, std::size_t N>
-Matrix<T, M, N>& Matrix<T, M, N>::operator*=(const T& scalar) {
+Matrix<T, M, N>& Matrix<T, M, N>::operator*=(const T& scalar) requires(Multiplicable<T>) {
 	for (auto& val: *this) {
 		val *= scalar;
 	}

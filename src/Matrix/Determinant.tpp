@@ -2,7 +2,7 @@
 #define MATRIX_DETERMINANT_TPP
 
 template<typename T, std::size_t M, std::size_t N>
-T Matrix<T, M, N>::determinant() const requires(M == N) {
+T Matrix<T, M, N>::determinant() const requires(M == N && Equatable<T> && Multiplicable<T> && Divisible<T> && Subtractable<T>) {
 	const auto [ref, coef] = this->rowEchelonWithDetCoef();
 	T          det = coef;
 

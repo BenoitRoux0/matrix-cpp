@@ -2,7 +2,7 @@
 #define MATRIX_SUB_TPP
 
 template<typename T, std::size_t M, std::size_t N>
-Matrix<T, M, N> Matrix<T, M, N>::operator-(const Matrix& rhs) const {
+Matrix<T, M, N> Matrix<T, M, N>::operator-(const Matrix& rhs) const requires(Subtractable<T>) {
 	Matrix m(*this);
 
 	for (auto [lVal, rVal]: std::views::zip(m, rhs)) {
@@ -13,7 +13,7 @@ Matrix<T, M, N> Matrix<T, M, N>::operator-(const Matrix& rhs) const {
 }
 
 template<typename T, std::size_t M, std::size_t N>
-Matrix<T, M, N>& Matrix<T, M, N>::operator-=(const Matrix& rhs) {
+Matrix<T, M, N>& Matrix<T, M, N>::operator-=(const Matrix& rhs) requires(Subtractable<T>) {
 	for (auto [lVal, rVal]: std::views::zip(this, rhs)) {
 		lVal -= rVal;
 	}
