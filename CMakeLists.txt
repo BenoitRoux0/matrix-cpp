@@ -2,7 +2,6 @@ cmake_minimum_required(VERSION 3.20)
 
 set(CMAKE_CXX_STANDARD 23)
 add_compile_options(-Wall -Wextra -Werror)
-add_compile_options(-fconcepts-diagnostics-depth=5)
 add_link_options(-Wl,-rpath=/home/beroux/apps/gcc-16.1.0/lib64)
 
 project(matrix)
@@ -25,16 +24,21 @@ enable_testing()
 
 add_executable(
         matrix_tests
-        tests/Misc/Lerp.cpp
-        tests/Matrix/Basic_Matrix.cpp
-        tests/Matrix/Operators_Matrix.cpp
-        tests/Matrix/Trace_Transpose_RowEchelon.cpp
-        tests/Matrix/Inverse.cpp
-        tests/Vector/Basic_Vector.cpp
-        tests/Vector/Operators_Vector.cpp
-        tests/Vector/CrossCosine.cpp
-        tests/Vector/Dot.cpp
+        tests/Vector/BasicOperations.cpp
+        tests/Vector/LinearCombination.cpp
+        tests/Vector/DotProduct.cpp
         tests/Vector/Norms.cpp
+        tests/Vector/Cosine.cpp
+        tests/Vector/CrossProduct.cpp
+        tests/Matrix/BasicOperations.cpp
+        tests/Matrix/Multiply.cpp
+        tests/Matrix/Trace.cpp
+        tests/Matrix/Transpose.cpp
+        tests/Matrix/RowEchelon.cpp
+        tests/Matrix/Determinant.cpp
+        tests/Matrix/Inverse.cpp
+        tests/Matrix/Rank.cpp
+        tests/lerp.cpp
 )
 
 target_link_libraries(
