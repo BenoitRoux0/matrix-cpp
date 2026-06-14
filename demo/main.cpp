@@ -1,9 +1,12 @@
 #include <print>
 #include "Complex.hpp"
+#include "Misc.hpp"
 
-int	main() {
-	Complex complexA(5./3., -10);
-	Complex complexB(5./3., -10);
+int main() {
+	auto mat = stackixx::projection(90, 1, 1, 50);
 
-	std::print("{}\n", complexA != complexB);
+	if (mat.has_value()) {
+		std::println("{}", *mat);
+	}
+
 }
